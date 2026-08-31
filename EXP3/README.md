@@ -42,6 +42,15 @@ login screen (click a chip to autofill):
   `user.role`
 - `src/pages/Unauthorized.jsx` — shown to authenticated users hitting a route
   their role doesn't cover
+- `src/pages/PostComposer.jsx` — the "Post Composer" screen (`/editor`). Open
+  to any logged-in role, but a `PERMISSIONS` matrix per role drives which
+  actions (View/Create/Edit/Delete) show as Allowed vs. Not allowed, and
+  disables the create form for roles without `create` permission. Below it,
+  an "All Posts" list shows View/Edit/Delete buttons per post, each disabled
+  according to the same permission matrix — Viewer, for example, can create
+  nothing and can only View existing posts. This demonstrates RBAC enforced
+  at the action/UI level, complementing `ProtectedRoute`'s route-level
+  enforcement.
 
 ## A note on the "signing" in `src/utils/jwt.js`
 

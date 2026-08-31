@@ -11,9 +11,7 @@ export default function NavBar() {
         <Link to="/dashboard">Dashboard</Link>
         {/* Conditionally rendered based on role — Experiment 1.3.2, step 5 */}
         {user.role === 'Admin' && <Link to="/admin">Admin panel</Link>}
-        {(user.role === 'Admin' || user.role === 'Editor') && (
-          <Link to="/editor">Content</Link>
-        )}
+        <Link to="/editor">Post Composer</Link>
       </div>
       <div className="navbar-right">
         <span className="user-chip">

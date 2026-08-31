@@ -4,7 +4,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AdminPanel from './pages/AdminPanel';
-import EditorPanel from './pages/EditorPanel';
+import PostComposer from './pages/PostComposer';
 import Unauthorized from './pages/Unauthorized';
 
 export default function App() {
@@ -35,8 +35,13 @@ export default function App() {
           <Route
             path="/editor"
             element={
-              <ProtectedRoute allowedRoles={['Admin', 'Editor']}>
-                <EditorPanel />
+              // No allowedRoles here on purpose: every authenticated role can
+              // open the Post Composer, but what it lets them DO (view-only
+              // vs. create) is driven by the permission matrix inside the
+              // page itself. This shows RBAC enforced at the UI/action level,
+              // not just at the route level.
+              <ProtectedRoute>
+                <PostComposer />
               </ProtectedRoute>
             }
           />
