@@ -1,0 +1,7 @@
+package com.omnipost.composer.repository;
+
+import com.omnipost.composer.model.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PostRepository extends JpaRepository<Post, Long> {
+}
